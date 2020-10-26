@@ -3,6 +3,11 @@ A continuación explicamos la manera de poder ejecutar el proyecto.
 
 Está montado con una estructura propia simulando un mini framework
 
+### Copiar .env
+Ejecutar:
+```
+copy .env.example .env
+```
 
 
 ### URL

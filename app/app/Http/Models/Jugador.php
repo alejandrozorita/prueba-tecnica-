@@ -2,24 +2,15 @@
 
 namespace App\Http\Models;
 
-class Jugador extends BaseModel
+use App\Http\Models\Orm\JugadorORM;
+
+/**
+ * Class Jugador
+ *
+ * @package App\Http\Models
+ */
+class Jugador extends JugadorORM
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-      'name',
-      'email',
-    ];
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-      'password',
-      'remember_token',
-    ];
+
+
 }
