@@ -8,7 +8,6 @@ class HomeController
 {
     public function index()
     {
-        JugadorORM::createTable();
         return view('home');
     }
 }

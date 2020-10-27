@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use CreateFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,10 +12,15 @@ use PHPUnit\Framework\TestCase;
  */
 abstract class BaseTest extends TestCase
 {
-    protected $app;
+    /**
+     * @var CreateFactory;
+     */
+    protected $fakerMethod;
 
     public function startApp()
     {
         require __DIR__.'/../bootstrap/app.php';
+
+        $this->fakerMethod = new CreateFactory();
     }
 }
