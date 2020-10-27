@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Feature;
+namespace Tests\Feature;
 
 use Tests\BaseTest;
 
@@ -11,14 +11,5 @@ use Tests\BaseTest;
  */
 class UsersTest extends BaseTest
 {
-    /** @test  */
-    public function crearUsuario()
-    {
-        $this->startApp();
 
-        $user = new UserFactory('Alejandro', 'contacto@alejandrozorita.me');
-        $this->assertEquals('Alejandro', $user->nombre);
-        $this->assertEquals('contacto@alejandrozorita.me', $user->email);
-
-    }
 }

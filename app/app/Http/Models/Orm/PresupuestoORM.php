@@ -4,6 +4,11 @@ namespace App\Http\Models\Orm;
 
 use App\database\CreateTablePresupuesto;
 
+/**
+ * Class PresupuestoORM
+ *
+ * @package App\Http\Models\Orm
+ */
 class PresupuestoORM extends BaseModel
 {
 

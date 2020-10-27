@@ -18,7 +18,7 @@ class CreateTablePresupuesto
             {
                 $table->increments('id');
                 $table->string('presupuesto');
-                $table->integer('equipo_id');
+                $table->foreignId('equipo_id');
                 $table->timestamps();
             });
             return true;

@@ -8,6 +8,7 @@ use Tests\BaseTest;
  * Class FactoryTest
  *
  * @package Test\Unit
+ *
  */
 class FactoryTest extends BaseTest
 {

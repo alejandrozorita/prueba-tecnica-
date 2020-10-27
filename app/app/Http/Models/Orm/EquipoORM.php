@@ -3,8 +3,12 @@
 namespace App\Http\Models\Orm;
 
 use App\database\CreateTableEquipo;
-use App\database\CreateTableJugador;
 
+/**
+ * Class EquipoORM
+ *
+ * @package App\Http\Models\Orm
+ */
 class EquipoORM extends BaseModel
 {
 

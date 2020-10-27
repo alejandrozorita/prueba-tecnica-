@@ -5,11 +5,11 @@ namespace Test\Unit;
 use Tests\BaseTest;
 
 /**
- * Class CreateTableJugadorTest
+ * Class EquipoTest
  *
- * @package App\test
+ * @package Test\Unit
  */
-class PresupuestoTest extends BaseTest
+class EquipoTest extends BaseTest
 {
 
     /** @test  */

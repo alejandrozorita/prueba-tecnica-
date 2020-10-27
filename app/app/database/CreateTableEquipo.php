@@ -14,11 +14,11 @@ class CreateTableEquipo
     public function __construct()
     {
         try {
-            Capsule::schema()->create('equipo', function ($table)
+            Capsule::schema()->create('equipos', function ($table)
             {
                 $table->increments('id');
                 $table->string('nombre');
-                $table->integer('user_id');
+                $table->foreignId('user_id');
                 $table->integer('max_jugadores');
                 $table->integer('min_jugadores');
                 $table->timestamps();

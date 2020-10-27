@@ -13,6 +13,7 @@ class App
 {
     private static $instance = null;
 
+
     public function __construct()
     {
         new CapsuleFactory();
@@ -24,8 +25,7 @@ class App
      */
     public static function getSingletonInstance()
     {
-        if(!self::$instance)
-        {
+        if ( ! self::$instance) {
             self::$instance = new App();
         }
         return self::$instance;

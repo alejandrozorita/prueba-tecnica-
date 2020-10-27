@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Feature;
+namespace Tests\Unit;
 
 use App\database\CreateTableEquipo;
 use App\database\CreateTableJugador;
@@ -18,7 +18,7 @@ class CreateTablesTest extends BaseTest
 {
 
     /** @test */
-    public function crearTabla()
+    public function crearTablas()
     {
         $this->startApp();
 

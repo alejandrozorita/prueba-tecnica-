@@ -11,6 +11,9 @@ Ejecutar:
 copy .env.example .env
 ```
 
+### Cargar BD
+Ir a la URL: ```http://localhost/bd/cargar``` 
+
 ### URL
 Para ver el proyecto es necesario entrar a http://localhost
 
