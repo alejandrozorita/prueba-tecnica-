@@ -3,12 +3,13 @@ A continuación explicamos la manera de poder ejecutar el proyecto.
 
 Está montado con una estructura propia simulando un mini framework
 
+
+## Instalación
 ### Copiar .env
 Ejecutar:
 ```
 copy .env.example .env
 ```
-
 
 ### URL
 Para ver el proyecto es necesario entrar a http://localhost
