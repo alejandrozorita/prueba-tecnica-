@@ -19,7 +19,8 @@ class CreateTableEquipo
                 $table->increments('id');
                 $table->string('nombre');
                 $table->integer('user_id');
-                $table->integer('num_jugadores');
+                $table->integer('max_jugadores');
+                $table->integer('min_jugadores');
                 $table->timestamps();
             });
             return true;

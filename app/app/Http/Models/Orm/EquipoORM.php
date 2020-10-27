@@ -18,7 +18,8 @@ class EquipoORM extends BaseModel
     protected $fillable = [
       'nombre',
       'user_id',
-      'num_jugadores'
+      'max_jugadores',
+      'min_jugadores'
     ];
 
 

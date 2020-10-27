@@ -15,7 +15,7 @@ class CreateFactory
      */
     private $faker;
 
-    private $nombre, $imagen, $precio, $agilidad, $fuerza, $suerte, $num_jugadores, $email, $presupuesto;
+    private $nombre, $imagen, $precio, $agilidad, $fuerza, $suerte, $max_jugadores, $min_jugadores, $email, $presupuesto;
 
 
     public function __construct()
@@ -27,7 +27,8 @@ class CreateFactory
         $this->agilidad = $this->faker->randomNumber(2);
         $this->fuerza = $this->faker->randomNumber(2);
         $this->suerte = $this->faker->randomNumber(2);
-        $this->num_jugadores = $this->faker->randomNumber(2);
+        $this->max_jugadores = $this->faker->randomNumber(2);
+        $this->min_jugadores = $this->max_jugadores - $this->faker->randomNumber(1);
         $this->email = $this->faker->email;
         $this->presupuesto = $this->faker->randomNumber(5);
     }
@@ -50,7 +51,8 @@ class CreateFactory
     {
         return ModelFactory::equipo([
           'nombre' => $attributes['nombre'] ?? $this->nombre,
-          'num_jugadores' => $attributes['num_jugadores'] ?? $this->num_jugadores,
+          'max_jugadores' => $attributes['max_jugadores'] ?? $this->max_jugadores,
+          'min_jugadores' => $attributes['min_jugadores'] ?? $this->min_jugadores,
           'user_id' => $attributes['user_id'] ?? $this->createFactoryUser()->id,
         ]);
     }

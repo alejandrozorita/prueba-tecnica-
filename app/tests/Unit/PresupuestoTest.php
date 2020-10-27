@@ -19,9 +19,9 @@ class PresupuestoTest extends BaseTest
 
         $presupuestoInicial = 10000;
 
-        $user = new UserFactory('Alejandro', 'contacto@alejandrozorita.me');
+        $equipo = $this->fakerMethod->createFactoryEquipo();
 
-        $presupuesto = new FactoryPresupuesto($user, $presupuestoInicial);
+        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
         $this->assertEquals($presupuestoInicial, $presupuesto->getPresupuesto());
 
     }
@@ -47,10 +47,10 @@ class PresupuestoTest extends BaseTest
 
         $presupuestoInicial = 10000;
 
-        $user = new UserFactory('Alejandro', 'contacto@alejandrozorita.me');
+        $equipo = $this->fakerMethod->createFactoryEquipo();
         $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', 500, 90, 45, 22);
 
-        $presupuesto = new FactoryPresupuesto($user, $presupuestoInicial);
+        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
         $compra = $presupuesto->realizarCompra($jugador);
         $this->assertTrue($compra);
         $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());
@@ -65,10 +65,10 @@ class PresupuestoTest extends BaseTest
         $cpacidadEndeudamiento = 0.2;
         $precioJugador = ($presupuestoInicial * $cpacidadEndeudamiento) + $presupuestoInicial;
 
-        $user = new UserFactory('Alejandro', 'contacto@alejandrozorita.me');
+        $equipo = $this->fakerMethod->createFactoryEquipo();
         $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', $precioJugador, 90, 45, 22);
 
-        $presupuesto = new FactoryPresupuesto($user, $presupuestoInicial);
+        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
         $compra = $presupuesto->realizarCompra($jugador);
         $this->assertTrue($compra);
         $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());
@@ -83,10 +83,10 @@ class PresupuestoTest extends BaseTest
         $cpacidadEndeudamiento = 0.21;
         $precioJugador = ($presupuestoInicial * $cpacidadEndeudamiento) + $presupuestoInicial;
 
-        $user = new UserFactory('Alejandro', 'contacto@alejandrozorita.me');
+        $equipo = $this->fakerMethod->createFactoryEquipo();
         $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', $precioJugador, 90, 45, 22);
 
-        $presupuesto = new FactoryPresupuesto($user, $presupuestoInicial);
+        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
         $compra = $presupuesto->realizarCompra($jugador);
         $this->assertTrue($compra);
         $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());

@@ -40,11 +40,13 @@ class FactoryTest extends BaseTest
 
         $equipo = $this->fakerMethod->createFactoryEquipo([
           'nombre' => 'Nombre Equipo',
-          'num_jugadores' => 11,
+          'max_jugadores' => 11,
+          'min_jugadores' => 10,
           'user_id' => 11,
         ]);
         $this->assertEquals('Nombre Equipo', $equipo->nombre);
-        $this->assertEquals(11, $equipo->num_jugadores);
+        $this->assertEquals(11, $equipo->max_jugadores);
+        $this->assertEquals(10, $equipo->min_jugadores);
         $this->assertEquals(11, $equipo->user_id);
     }
 

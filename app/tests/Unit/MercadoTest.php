@@ -17,12 +17,12 @@ class MercadoTest extends BaseTest
     {
         $this->startApp();
 
-        $numJugadoresaleatorios = 10;
+        $numJugadoresAleatorios = 10;
         $rangoPrecio = [3000,4000];
 
-        $mercado = new MercadoFactory($numJugadoresaleatorios, $rangoPrecio);
+        $mercado = new MercadoFactory($numJugadoresAleatorios, $rangoPrecio);
         $jugadores = $mercado->getJugadoresAleatorios();
-        $this->assertEquals($numJugadoresaleatorios, count($jugadores));
+        $this->assertEquals($numJugadoresAleatorios, count($jugadores));
 
         $precio = $mercado->getRangoPrecio();
         $this->assertEquals($rangoPrecio[0], $precio[0]);
@@ -30,7 +30,7 @@ class MercadoTest extends BaseTest
 
     }
 
-    public function berificarPropiedadesJugador()
+    public function verificarPropiedadesJugador()
     {
         $this->startApp();
 
