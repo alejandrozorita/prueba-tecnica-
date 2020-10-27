@@ -1,9 +1,14 @@
 <?php
 
-namespace Tests\Unit;
+namespace Test\Unit;
 
 use Tests\BaseTest;
 
+/**
+ * Class FactoryTest
+ *
+ * @package Test\Unit
+ */
 class FactoryTest extends BaseTest
 {
     /** @test  */
@@ -19,6 +24,7 @@ class FactoryTest extends BaseTest
           'fuerza' => 45,
           'suerte' => 22,
         ]);
+
         $this->assertEquals('Nombre Jugador', $jugador->nombre);
         $this->assertEquals('img.jpg', $jugador->imagen);
         $this->assertEquals(90, $jugador->precio);
@@ -35,9 +41,11 @@ class FactoryTest extends BaseTest
         $equipo = $this->fakerMethod->createFactoryEquipo([
           'nombre' => 'Nombre Equipo',
           'num_jugadores' => 11,
+          'user_id' => 11,
         ]);
-        $this->assertEquals('Nombre Jugador', $equipo->nombre);
+        $this->assertEquals('Nombre Equipo', $equipo->nombre);
         $this->assertEquals(11, $equipo->num_jugadores);
+        $this->assertEquals(11, $equipo->user_id);
     }
 
     /** @test  */
@@ -46,10 +54,10 @@ class FactoryTest extends BaseTest
         $this->startApp();
 
         $user = $this->fakerMethod->createFactoryUser([
-          'nombre' => 'Nombre Equipo',
+          'nombre' => 'Nombre Usuario',
           'email' => 'email@test.com',
         ]);
-        $this->assertEquals('Nombre Jugador', $user->nombre);
+        $this->assertEquals('Nombre Usuario', $user->nombre);
         $this->assertEquals('email@test.com', $user->email);
     }
 

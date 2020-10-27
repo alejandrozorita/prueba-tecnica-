@@ -1,6 +1,6 @@
 <?php
 
-namespace App\test;
+namespace Test\Feature;
 
 use Tests\BaseTest;
 

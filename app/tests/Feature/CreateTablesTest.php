@@ -1,9 +1,12 @@
 <?php
 
-namespace App\test;
+namespace Test\Feature;
 
+use App\database\CreateTableEquipo;
 use App\database\CreateTableJugador;
-use App\Http\Models\Jugador;
+use App\database\CreateTablePresupuesto;
+use App\database\CreateTableUser;
+use App\Http\Factory\ModelFactory;
 use Tests\BaseTest;
 
 /**
@@ -19,20 +22,17 @@ class CreateTablesTest extends BaseTest
     {
         $this->startApp();
 
-        $tabla = User::createTable();
-        $this->assertInstanceOf(CreateUserJugador::class, $tabla);
+        $tabla = ModelFactory::user()::createTable();
+        $this->assertInstanceOf(CreateTableUser::class, $tabla);
 
-        $tabla = Jugador::createTable();
+        $tabla = ModelFactory::jugador()::createTable();
         $this->assertInstanceOf(CreateTableJugador::class, $tabla);
 
-        $tabla = Equipo::createTable();
-        $this->assertInstanceOf(CreateEquipoJugador::class, $tabla);
+        $tabla = ModelFactory::equipo()::createTable();
+        $this->assertInstanceOf(CreateTableEquipo::class, $tabla);
 
-        $tabla = Mercado::createTable();
-        $this->assertInstanceOf(CreateMercadoJugador::class, $tabla);
-
-        $tabla = Presupuesto::createTable();
-        $this->assertInstanceOf(CreatePresupuestoJugador::class, $tabla);
+        $tabla = ModelFactory::presupuesto()::createTable();
+        $this->assertInstanceOf(CreateTablePresupuesto::class, $tabla);
 
     }
 }

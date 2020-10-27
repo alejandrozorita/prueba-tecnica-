@@ -1,6 +1,6 @@
 <?php
 
-namespace App\test;
+namespace Test\Unit;
 
 use Tests\BaseTest;
 
@@ -9,7 +9,7 @@ use Tests\BaseTest;
  *
  * @package App\test
  */
-class MercadoTest extends BaseTest
+class PresupuestoTest extends BaseTest
 {
 
     /** @test  */

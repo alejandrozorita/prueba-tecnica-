@@ -2,17 +2,13 @@
 
 namespace App\Http\Models\Orm;
 
+use App\database\CreateTableEquipo;
 use App\database\CreateTableJugador;
 
-/**
- * Class Jugador
- *
- * @package App\Http\Models\Orm
- */
-class JugadorORM extends BaseModel
+class EquipoORM extends BaseModel
 {
 
-    protected $table = 'jugadores';
+    protected $table = 'equipos';
 
     /**
      * The attributes that are mass assignable.
@@ -21,15 +17,14 @@ class JugadorORM extends BaseModel
      */
     protected $fillable = [
       'nombre',
-      'imagen',
-      'precio',
-      'agilidad',
-      'fuerza',
-      'suerte',
+      'user_id',
+      'num_jugadores'
     ];
+
 
     public static function createTable()
     {
-        return new CreateTableJugador();
+        return new CreateTableEquipo();
     }
+
 }

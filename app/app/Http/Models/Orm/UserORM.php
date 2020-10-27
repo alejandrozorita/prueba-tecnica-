@@ -2,14 +2,14 @@
 
 namespace App\Http\Models\Orm;
 
-use App\database\CreateTableJugador;
+use App\database\CreateTableUser;
 
 /**
  * Class Jugador
  *
  * @package App\Http\Models\Orm
  */
-class JugadorORM extends BaseModel
+class UserORM extends BaseModel
 {
 
     protected $table = 'jugadores';
@@ -21,15 +21,12 @@ class JugadorORM extends BaseModel
      */
     protected $fillable = [
       'nombre',
-      'imagen',
-      'precio',
-      'agilidad',
-      'fuerza',
-      'suerte',
+      'email',
     ];
+
 
     public static function createTable()
     {
-        return new CreateTableJugador();
+        return new CreateTableUser();
     }
 }
