@@ -12,36 +12,29 @@ use Tests\BaseTest;
 class MercadoTest extends BaseTest
 {
 
-    /** @test  */
+    private $numJugadoresAleatorios, $precioMax, $precioMin;
+
+
+    /** @test */
     public function iniciarMercado()
     {
-        $this->startApp();
+        $mercado = $this->crearMercado();
 
-        $numJugadoresAleatorios = 10;
-        $rangoPrecio = [3000,4000];
+        $this->assertEquals($this->numJugadoresAleatorios, count($mercado->getJugadores()));
 
-        $mercado = new MercadoFactory($numJugadoresAleatorios, $rangoPrecio);
-        $jugadores = $mercado->getJugadoresAleatorios();
-        $this->assertEquals($numJugadoresAleatorios, count($jugadores));
-
-        $precio = $mercado->getRangoPrecio();
-        $this->assertEquals($rangoPrecio[0], $precio[0]);
-        $this->assertEquals($rangoPrecio[1], $precio[1]);
-
+        $this->assertEquals($this->precioMax, $mercado->getMaxPrecio());
+        $this->assertEquals($this->precioMin, $mercado->getMinPrecio());
     }
 
+
+    /** @test */
     public function verificarPropiedadesJugador()
     {
-        $this->startApp();
-
-        $numJugadoresaleatorios = 10;
-        $rangoPrecio = [3000,4000];
-
-        $mercado = new MercadoFactory($numJugadoresaleatorios, $rangoPrecio);
-        $jugador = $mercado->getJugadoresAleatorios()[0];
+        $mercado = $this->crearMercado();
+        $jugador = $mercado->getJugadores()[0];
 
         $this->assertIsString($jugador->nombre);
-        $this->assertIsString($jugador->foto);
+        $this->assertIsString($jugador->imagen);
         $this->assertIsInt($jugador->agilidad);
         $this->assertIsInt($jugador->fuerza);
         $this->assertIsInt($jugador->suerte);
@@ -50,22 +43,34 @@ class MercadoTest extends BaseTest
     /** @test  */
     public function setRangoPrecio()
     {
-        $this->startApp();
+        $mercado = $this->crearMercado();
 
-        $numJugadoresaleatorios = 10;
-        $rangoPrecio = [3000,4000];
+        $mercado->setNumJugadoresAleatorios(20);
+        $this->assertEquals(20, $mercado->getNumJugadoresAleatorios());
 
-        $mercado = new MercadoFactory($numJugadoresaleatorios, $rangoPrecio);
-        $mercado->setJugadoresAleatorios(20);
-        $jugadores = $mercado->getJugadoresAleatorios();
-        $this->assertEquals(20, count($jugadores));
-
-        $mercado->setRangoPrecio([6000, 7000]);
-        $precio = $mercado->getRangoPrecio();
-        $this->assertEquals(6000, $precio[0]);
-        $this->assertEquals(7000, $precio[1]);
-
+        $mercado->setMinPrecio(6000);
+        $mercado->setMaxPrecio(7000);
+        $this->assertEquals(6000, $mercado->getMinPrecio());
+        $this->assertEquals(7000, $mercado->getMaxPrecio());
     }
 
+
+    /**
+     * @return \App\Http\Models\Mercado
+     */
+    private function crearMercado()
+    {
+        $this->startApp();
+
+        $this->numJugadoresAleatorios = 10;
+        $this->precioMax = 4000;
+        $this->precioMin = 3000;
+
+        return $this->fakerMethod->createFactoryMercado([
+          'num_jugadores_aleatorios' => $this->numJugadoresAleatorios,
+          'max_precio' => $this->precioMax,
+          'min_precio' => $this->precioMin
+        ]);
+    }
 
 }

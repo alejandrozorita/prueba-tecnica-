@@ -11,8 +11,7 @@ use App\database\CreateTablePresupuesto;
  */
 class PresupuestoORM extends BaseModel
 {
-
-    protected $table = 'jugadores';
+    protected $table = 'presupuesto';
 
     /**
      * The attributes that are mass assignable.

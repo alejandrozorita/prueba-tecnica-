@@ -11,7 +11,6 @@ use App\database\CreateTableEquipo;
  */
 class EquipoORM extends BaseModel
 {
-
     protected $table = 'equipos';
 
     /**

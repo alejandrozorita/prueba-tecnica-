@@ -11,6 +11,4 @@ use App\Http\Models\Orm\JugadorORM;
  */
 class Jugador extends JugadorORM
 {
-
-
 }

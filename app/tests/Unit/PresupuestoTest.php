@@ -11,85 +11,44 @@ use Tests\BaseTest;
  */
 class PresupuestoTest extends BaseTest
 {
+    /**
+     * @var int
+     */
+    private $presupuestoInicial;
 
-    /** @test  */
-    public function obtenerPresupuesto()
+
+    /** @test */
+    public function getPresupuesto()
     {
-        $this->startApp();
+        $presupuesto = $this->crearPresupuesto();
 
-        $presupuestoInicial = 10000;
-
-        $equipo = $this->fakerMethod->createFactoryEquipo();
-
-        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
-        $this->assertEquals($presupuestoInicial, $presupuesto->getPresupuesto());
-
+        $this->assertEquals($this->presupuestoInicial, $presupuesto->getPresupuesto());
     }
 
-    /** @test  */
+
+    /** @test */
     public function setPresupuesto()
     {
-        $this->startApp();
+        $presupuesto = $this->crearPresupuesto();
 
-        $presupuestoInicial = 10000;
-
-        $user = new UserFactory('Alejandro', 'contacto@alejandrozorita.me');
-
-        $presupuesto = new FactoryPresupuesto($user, $presupuestoInicial);
         $presupuesto->setPresupuesto(20000);
         $this->assertEquals(20000, $presupuesto->getPresupuesto());
     }
 
-    /** @test  */
-    public function getPresupuestoActual()
+
+    /**
+     * @return \App\Http\Models\Presupuesto
+     */
+    private function crearPresupuesto()
     {
         $this->startApp();
 
-        $presupuestoInicial = 10000;
+        $this->presupuestoInicial = 10000;
 
-        $equipo = $this->fakerMethod->createFactoryEquipo();
-        $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', 500, 90, 45, 22);
-
-        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
-        $compra = $presupuesto->realizarCompra($jugador);
-        $this->assertTrue($compra);
-        $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());
-    }
-
-    /** @test  */
-    public function capacidadEndeudamientoTrue()
-    {
-        $this->startApp();
-
-        $presupuestoInicial = 10000;
-        $cpacidadEndeudamiento = 0.2;
-        $precioJugador = ($presupuestoInicial * $cpacidadEndeudamiento) + $presupuestoInicial;
-
-        $equipo = $this->fakerMethod->createFactoryEquipo();
-        $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', $precioJugador, 90, 45, 22);
-
-        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
-        $compra = $presupuesto->realizarCompra($jugador);
-        $this->assertTrue($compra);
-        $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());
-    }
-
-    /** @test  */
-    public function capacidadEndeudamientoFalse()
-    {
-        $this->startApp();
-
-        $presupuestoInicial = 10000;
-        $cpacidadEndeudamiento = 0.21;
-        $precioJugador = ($presupuestoInicial * $cpacidadEndeudamiento) + $presupuestoInicial;
-
-        $equipo = $this->fakerMethod->createFactoryEquipo();
-        $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', $precioJugador, 90, 45, 22);
-
-        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
-        $compra = $presupuesto->realizarCompra($jugador);
-        $this->assertTrue($compra);
-        $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());
+        return $this->fakerMethod->createFactoryPresupuesto([
+          'equipo_id' => 1,
+          'presupuesto' => $this->presupuestoInicial,
+        ]);
     }
 
 }

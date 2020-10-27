@@ -12,5 +12,20 @@ use App\Http\Models\Orm\PresupuestoORM;
 class Presupuesto extends PresupuestoORM
 {
 
+    /**
+     * @return mixed
+     */
+    public function getPresupuesto(): int
+    {
+        return $this->presupuesto;
+    }
 
+
+    /**
+     * @param $presupuesto
+     */
+    public function setPresupuesto($presupuesto): void
+    {
+        $this->presupuesto = $presupuesto;
+    }
 }

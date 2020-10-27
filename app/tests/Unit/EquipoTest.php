@@ -24,7 +24,5 @@ class EquipoTest extends BaseTest
 
         $this->assertEquals(10, $equipo->getMaxJugadores());
         $this->assertEquals(6, $equipo->getMinJugadores());
-
     }
-
 }

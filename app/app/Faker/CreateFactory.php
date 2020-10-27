@@ -31,6 +31,8 @@ class CreateFactory
         $this->min_jugadores = $this->max_jugadores - $this->faker->randomNumber(1);
         $this->email = $this->faker->email;
         $this->presupuesto = $this->faker->randomNumber(5);
+        $this->min_precio = $this->precio - $this->faker->randomNumber(1);
+        $this->num_jugadores_aleatorios = $this->faker->randomNumber(2);
     }
 
 
@@ -75,5 +77,14 @@ class CreateFactory
     }
 
 
+    public function createFactoryMercado($attributes = [])
+    {
+        return ModelFactory::mercado([
+          'num_jugadores_aleatorios' =>  $attributes['num_jugadores_aleatorios'] ?? $this->createFactoryEquipo()->id,
+          'max_precio' =>$attributes['max_precio'] ?? $this->precio,
+          'min_precio' =>$attributes['min_precio'] ?? $this->min_precio,
+        ]);
+
+    }
 
 }

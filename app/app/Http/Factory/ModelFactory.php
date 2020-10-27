@@ -4,6 +4,7 @@ namespace App\Http\Factory;
 
 use App\Http\Models\Equipo;
 use App\Http\Models\Jugador;
+use App\Http\Models\Mercado;
 use App\Http\Models\Presupuesto;
 use App\Http\Models\User;
 
@@ -30,5 +31,11 @@ class ModelFactory
     {
         return new Equipo($attributes);
     }
+    public static function mercado($attributes = [])
+    {
+        return new Mercado($attributes);
+    }
+
+
 
 }
