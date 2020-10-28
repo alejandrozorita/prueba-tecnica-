@@ -12,7 +12,7 @@ use App\database\CreateTableUser;
 class UserORM extends BaseModel
 {
 
-    protected $table = 'jugadores';
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
