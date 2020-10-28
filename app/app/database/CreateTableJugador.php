@@ -14,12 +14,13 @@ class CreateTableJugador
     public function __construct()
     {
         try {
-            Capsule::schema()->create('jugador', function ($table)
+            Capsule::schema()->create('jugadores', function ($table)
             {
                 $table->increments('id');
                 $table->string('nombre');
                 $table->string('imagen');
                 $table->integer('precio');
+                $table->foreignId('equipo_id')->nullable();
                 $table->integer('agilidad');
                 $table->integer('fuerza');
                 $table->integer('suerte');

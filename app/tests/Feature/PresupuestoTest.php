@@ -4,6 +4,11 @@ namespace Tests\Feature;
 
 use Tests\BaseTest;
 
+/**
+ * Class PresupuestoTest
+ *
+ * @package Tests\Feature
+ */
 class PresupuestoTest extends BaseTest
 {
     /** @test  */
@@ -18,8 +23,8 @@ class PresupuestoTest extends BaseTest
         $equipo = $this->fakerMethod->createFactoryEquipo();
         $jugador = new JugadorFactory('Nombre Jugador', 'img.jpg', $precioJugador, 90, 45, 22);
 
-        $presupuesto = new FactoryPresupuesto($equipo, $presupuestoInicial);
-        $compra = $presupuesto->realizarCompra($jugador);
+        $mercado = new FactoryPresupuesto($equipo, $presupuestoInicial);
+        $compra = $mercado->realizarCompra($jugador);
         $this->assertTrue($compra);
         $this->assertEquals($presupuestoInicial - $jugador->getPrecio(), $presupuesto->getPresupuestoActual());
     }

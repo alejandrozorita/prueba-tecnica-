@@ -18,9 +18,9 @@ class Mercado
 
     public function __construct(array $attributes = [])
     {
-        $this->numJugadoresAleatorios = $attributes['num_jugadores_aleatorios'] ?? rand(6,15);
-        $this->maxPrecio = $attributes['max_precio'] ?? rand(500,1000);
-        $this->minPrecio = $attributes['min_precio'] ?? rand(300,499);
+        $this->numJugadoresAleatorios = $attributes['num_jugadores_aleatorios'] ?? rand(6, 15);
+        $this->maxPrecio = $attributes['max_precio'] ?? rand(500, 1000);
+        $this->minPrecio = $attributes['min_precio'] ?? rand(300, 499);
         $this->jugadores = [];
         $this->iniciarMercado();
     }
@@ -79,6 +79,7 @@ class Mercado
         $this->minPrecio = $minPrecio;
     }
 
+
     /**
      * @return array
      */
@@ -87,11 +88,14 @@ class Mercado
         return $this->jugadores;
     }
 
+
     private function iniciarMercado()
     {
         $fakerMethod = new CreateFactory();
         for ($i = 0; $i < $this->numJugadoresAleatorios; $i++) {
-            array_push($this->jugadores, $fakerMethod->createFactoryJugador());
+            $jugador = $fakerMethod->createFactoryJugador();
+            $jugador->save();
+            array_push($this->jugadores, $jugador);
         }
     }
 

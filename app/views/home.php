@@ -1,4 +1,9 @@
-<div class="col-8">
-    <h1>Pagina Home</h1>
+<?php  include 'layout.php'; ?>
+
+<div class="container">
+  <div class="row">
+    Inicio aplicación. Navegar por el menú para distintas acciones
+  </div>
 </div>
+
 

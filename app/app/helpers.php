@@ -7,10 +7,12 @@ if (! function_exists('view')) {
     /**
      * @param $view
      *
+     * @param  array  $variables
+     *
      * @return \App\Http\Response
      */
-    function view($view) {
-        return new Response($view);
+    function view($view, array $variables = []) {
+        return new Response($view, $variables);
     }
 }
 

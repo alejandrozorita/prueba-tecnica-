@@ -5,11 +5,13 @@ namespace App\Http;
 class Response
 {
     protected $view;
+    protected $variables;
 
 
-    public function __construct($view)
+    public function __construct($view, array $variables)
     {
         $this->view = $view;
+        $this->variables = $variables;
     }
 
 
@@ -21,9 +23,10 @@ class Response
 
     public function send()
     {
-        $content = file_get_contents(viewPath($this->getView()));
+        $data = $this->variables;
+        //$content = file_get_contents(viewPath($this->getView()));
 
-        require viewPath('layout');
+        require viewPath($this->getView());
     }
 
 }

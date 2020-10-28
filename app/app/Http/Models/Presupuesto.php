@@ -12,6 +12,9 @@ use App\Http\Models\Orm\PresupuestoORM;
 class Presupuesto extends PresupuestoORM
 {
 
+    private $capacidadEndeudamiento = 0.2;
+
+
     /**
      * @return mixed
      */
@@ -28,4 +31,21 @@ class Presupuesto extends PresupuestoORM
     {
         $this->presupuesto = $presupuesto;
     }
+
+
+    public function validarCompra(Jugador $jugador)
+    {
+        $precioEquipo = $this->equipo->getPrecioEquipo();
+        return ($precioEquipo + $jugador->precio) <= $this->getCapacidadEndeudamiento();
+    }
+
+
+    /**
+     * @return float|int|mixed
+     */
+    public function getCapacidadEndeudamiento()
+    {
+        return ($this->presupuesto * $this->capacidadEndeudamiento) + $this->presupuesto;
+    }
+
 }

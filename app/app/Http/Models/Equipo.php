@@ -26,4 +26,15 @@ class Equipo extends EquipoORM
     {
         return $this->min_jugadores;
     }
+
+    public function getPrecioEquipo()
+    {
+        $value = 0;
+        $jugadores = $this->jugadores;
+        foreach ($jugadores as $jugador) {
+            $value += $jugador->precio;
+        }
+        return $value;
+    }
+
 }

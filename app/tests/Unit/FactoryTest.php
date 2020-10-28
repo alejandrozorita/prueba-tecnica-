@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Unit;
+namespace Tests\Unit;
 
 use Tests\BaseTest;
 
@@ -20,6 +20,7 @@ class FactoryTest extends BaseTest
         $jugador = $this->fakerMethod->createFactoryJugador([
           'nombre' => 'Nombre Jugador',
           'imagen' => 'img.jpg',
+          'equipo_id' => 1,
           'precio' => 90,
           'agilidad' => 90,
           'fuerza' => 45,
@@ -28,6 +29,7 @@ class FactoryTest extends BaseTest
 
         $this->assertEquals('Nombre Jugador', $jugador->nombre);
         $this->assertEquals('img.jpg', $jugador->imagen);
+        $this->assertEquals(1, $jugador->equipo_id);
         $this->assertEquals(90, $jugador->precio);
         $this->assertEquals(90, $jugador->agilidad);
         $this->assertEquals(45, $jugador->fuerza);

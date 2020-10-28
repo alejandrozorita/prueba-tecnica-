@@ -22,6 +22,7 @@ class JugadorORM extends BaseModel
     protected $fillable = [
       'nombre',
       'imagen',
+      'equipo_id',
       'precio',
       'agilidad',
       'fuerza',

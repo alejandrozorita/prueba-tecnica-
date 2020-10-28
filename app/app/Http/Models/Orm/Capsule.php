@@ -28,9 +28,9 @@ class Capsule
           "username" => $_ENV['DB_USERNAME'],
           "password" => $_ENV['DB_PASSWORD']
         ]);
-
-        $capsule->setAsGlobal();
         $capsule->bootEloquent();
+        $capsule->setAsGlobal();
+
         return $this;
     }
 

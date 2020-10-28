@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\Unit;
+namespace Tests\Unit;
 
 use Tests\BaseTest;
 
@@ -11,9 +11,6 @@ use Tests\BaseTest;
  */
 class MercadoTest extends BaseTest
 {
-
-    private $numJugadoresAleatorios, $precioMax, $precioMin;
-
 
     /** @test */
     public function iniciarMercado()
@@ -52,25 +49,6 @@ class MercadoTest extends BaseTest
         $mercado->setMaxPrecio(7000);
         $this->assertEquals(6000, $mercado->getMinPrecio());
         $this->assertEquals(7000, $mercado->getMaxPrecio());
-    }
-
-
-    /**
-     * @return \App\Http\Models\Mercado
-     */
-    private function crearMercado()
-    {
-        $this->startApp();
-
-        $this->numJugadoresAleatorios = 10;
-        $this->precioMax = 4000;
-        $this->precioMin = 3000;
-
-        return $this->fakerMethod->createFactoryMercado([
-          'num_jugadores_aleatorios' => $this->numJugadoresAleatorios,
-          'max_precio' => $this->precioMax,
-          'min_precio' => $this->precioMin
-        ]);
     }
 
 }

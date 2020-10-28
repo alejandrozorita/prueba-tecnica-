@@ -3,6 +3,8 @@
 namespace App\Http\Models\Orm;
 
 use App\database\CreateTableEquipo;
+use App\Http\Models\Jugador;
+use App\Http\Models\Presupuesto;
 
 /**
  * Class EquipoORM
@@ -29,6 +31,21 @@ class EquipoORM extends BaseModel
     public static function createTable()
     {
         return new CreateTableEquipo();
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function jugadores()
+    {
+        return $this->hasMany(Jugador::class, 'equipo_id', 'id');
+    }
+
+
+    public function presupuesto()
+    {
+        return $this->hasOne(Presupuesto::class, 'equipo_id', 'id');
     }
 
 }
